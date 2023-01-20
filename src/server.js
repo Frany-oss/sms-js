@@ -19,8 +19,10 @@ app.set('view engine', '.hbs');
 
 // middleware
 
+
 // routes
 app.use(require('./routes/index.routes.js'));
+
 // static files
 
 
