@@ -5,9 +5,13 @@ const newSchema = new Schema({
         type: String,
         require: true,
     },
+    From: {
+        type: String,
+    },
     To: {
         type: String,
     }
+    
 }, {
     timestamps: true
 })
