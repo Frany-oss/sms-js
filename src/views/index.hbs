@@ -14,14 +14,15 @@
     </div>
     <div class="col-md-8">
         {{#if messages}}
-            <div class="card card-body">
+            <ul class="list-group" style="height: 70vh; overflow-y: auto;">
                 {{#each messages}}
-                    <div class="card card-body">
+                    <div class="list-group-item list-group-item-info list-group-item-action">
                         <p> {{Body}} </p>
                         <span> {{To}} </span>
+                        <span> {{From}} </span>
                     </div>
                 {{/each}}
-            </div>
+            </ul>
         {{else}}
         <p> No Messages yet</p>
         {{/if}}

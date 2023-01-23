@@ -1,3 +1,5 @@
+const MessagingResponse = require('twilio').MessagingResponse;
+
 const {sendMessage} = require('../twilio/send-sms');
 const SMS = require('../models/sms');
 
@@ -21,8 +23,17 @@ const postMessage = async (req, res) => {
 };
 
 const receiveMessage = async (req, res) => {
-    console.log(req.body);
-    res.send("received");
+
+    console.log(req.body.Body);
+    console.log(req.body.From);
+
+    const savedSMS = await SMS.create({
+        Body: req.body.Body,
+        From: req.body.From
+    })
+
+    const twilml = new MessagingRespons();
+    res.send(twilml.toString());
 }
 
 module.exports = {
