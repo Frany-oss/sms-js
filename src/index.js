@@ -1,8 +1,14 @@
 require('dotenv').config();
 
+const http = require('http');
 const app = require('./server');
-const mongoose = require('./database');
+const server = http.createServer(app);
 
-app.listen(app.get('port'), () => {
+require('./database');
+require('./sockets').connection(server);
+
+
+
+server.listen(app.get('port'), () => {
     console.log('Server on port:', app.get('port'));
 });
